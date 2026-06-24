@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Ma+Shan+Zheng&family=Long+Cang&family=Noto+Serif+SC:wght@400;700&display=swap');
+@import "tailwindcss";
+
+.font-calligraphy {
+  font-family: "Zhi Mang Xing", cursive;
+}
+
+.font-brush {
+  font-family: "Ma Shan Zheng", cursive;
+}
+
+.font-longcang {
+  font-family: "Long Cang", cursive;
+}
+
+
+/* 3D Flip Card Utilities */
+.perspective {
+  perspective: 1200px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom Tailwind Animation Extensions */
+@keyframes waveBack {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.9); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+@keyframes waveMid {
+  0% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(1.15); }
+  100% { transform: translateX(0) translateZ(0) scaleY(1); }
+}
+@keyframes waveFront {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-15%) translateZ(0) scaleY(0.85); }
+  100% { transform: translateX(-30%) translateZ(0) scaleY(1); }
+}
+
+.animate-waveBack {
+  animation: waveBack 16s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+.animate-waveMid {
+  animation: waveMid 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+.animate-waveFront {
+  animation: waveFront 9s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+/* Water Ripples */
+@keyframes waterRipple {
+  0% {
+    transform: scale(0.4) translate(-50%, -50%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+.animate-waterRipple {
+  animation: waterRipple 2.2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+/* Floating boats bobs and sways */
+@keyframes floatBob {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(2deg); }
+}
+@keyframes floatSway {
+  0% { transform: translateX(-4px) rotate(-1deg); }
+  100% { transform: translateX(4px) rotate(1deg); }
+}
+
+/* Fade in for mobile drawer */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Grid drawing animation placeholder */
+@keyframes inkLineDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Custom Scrollbar for Ink aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(247, 238, 220, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 115, 85, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(178, 34, 34, 0.6);
+}

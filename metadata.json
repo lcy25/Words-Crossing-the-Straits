@@ -1,0 +1,6 @@
+{
+  "name": "笔墨越海峡",
+  "description": "交互式卷轴数据叙事网页，展现大陆近现代作家与作品在海峡对岸的传播和重新解释之旅。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
