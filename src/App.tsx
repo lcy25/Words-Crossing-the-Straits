@@ -90,8 +90,13 @@ export default function App() {
 
   const handleContinueFromLetter = () => {
     setIsLetterOpen(false);
-    // Smooth scroll down to chapter 1 (lowering boat onto the river)
-    chapter1Ref.current?.scrollIntoView({ behavior: "smooth" });
+    if (selectedBoatAuthor?.id === "xiaolin") {
+      // Smooth scroll directly to the essay composition section (Chapter 3)
+      chapter3Ref.current?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Smooth scroll down to chapter 1 (lowering boat onto the river)
+      chapter1Ref.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const scrollToTop = () => {
@@ -127,7 +132,7 @@ export default function App() {
 
   // Determine ambient background mode depending on the active anchor segment
   const getAmbientMode = () => {
-    if (activeSection === "whisper") return "night"; // Dark indigo star space
+    if (activeSection === "whisper") return "paper"; // Keep Chapter 1 bright and consistent with visual theme
     if (activeSection === "mirror") return "mirror"; // Fragmented geometric reflection
     if (activeSection === "river") return "river"; // Rivers flowing on paper
     return "paper"; // default pure paper texture
@@ -185,9 +190,6 @@ export default function App() {
         ref={chapter1Ref}
         id="chapter1-section"
         className="w-full relative z-20 transition-all duration-1000 py-16 md:py-24"
-        style={{
-          backgroundColor: activeSection === "whisper" ? "rgba(10,12,15,0.7)" : "transparent",
-        }}
       >
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12 select-none">

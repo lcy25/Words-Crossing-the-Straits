@@ -146,41 +146,47 @@ export default function EssayPaper() {
 
         {/* Unfolded Shen Congwen Hand-written Quote Modal */}
         {showSpecialLetter && (
-          <div className="absolute inset-0 bg-[#fbf9f4]/98 z-40 p-6 md:p-10 flex flex-col justify-between items-center animate-fadeIn">
-            {/* Retro water mark brush */}
-            <div className="absolute inset-0 pointer-events-none opacity-5 bg-[radial-gradient(circle_at_center,#000_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="absolute inset-0 bg-[#fcf5e3]/92 backdrop-blur-[1px] z-40 p-6 md:p-10 flex flex-col justify-between items-center animate-fadeIn">
+            {/* Retro water mark brush to enhance texture */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(circle_at_center,#000_1px,transparent_1px)] bg-[size:16px_16px]" />
 
-            <div className="w-full flex justify-between items-center border-b border-[#977a57]/20 pb-2">
+            <div className="w-full flex justify-between items-center border-b border-[#977a57]/20 pb-2 relative z-10">
               <span className="text-xs font-serif text-[#977a57] tracking-widest">
                 【小林作文本第一行 ‧ 摘抄自《边城》】
               </span>
               <button
                 onClick={() => setShowSpecialLetter(false)}
-                className="text-xs text-stone-500 hover:text-stone-800 border border-stone-200 px-2 py-0.5 rounded"
+                className="text-xs text-[#977a57] hover:text-[#cb402b] border border-[#977a57]/30 hover:border-[#cb402b]/50 px-2 py-0.5 rounded transition-all bg-[#fcf5e3]/40 cursor-pointer"
               >
                 合上书角
               </button>
             </div>
 
-            {/* Hand-written looking quotation text layout */}
-            <div className="my-auto text-center px-4 max-w-lg space-y-6">
-              <p
-                className="text-2xl md:text-3xl font-serif font-black text-[#2c1d11] leading-relaxed tracking-widest italic"
-                style={{ writingMode: "vertical-rl" }}
+            {/* Hand-written looking quotation text layout - multi-line vertical for screen fitting */}
+            <div className="my-auto flex flex-col items-center justify-center space-y-4 relative z-10 select-none">
+              <div 
+                className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-[#2c1d11] leading-relaxed tracking-[0.25em] h-[180px] sm:h-[220px] md:h-[260px] flex items-center justify-center text-right font-black"
+                style={{ 
+                  writingMode: "vertical-rl",
+                  textShadow: "0.5px 0.5px 1px rgba(151,122,87,0.15)"
+                }}
               >
-                “水是各处可流的，火是各处可烧的，月亮是各处可照的，爱情是各处可到的。”
-              </p>
-              <div className="text-right">
-                <span className="text-xs text-[#977a57] font-serif">
+                “水是各处可流的，<br />
+                火是各处可烧的，<br />
+                月亮是各处可照的，<br />
+                爱情是各处可到的。”
+              </div>
+              <div className="mt-2 md:mt-4 text-center">
+                <span className="text-xs text-[#977a57] font-serif tracking-widest block">
                   ── 摘自 沈从文 ‧《边城》
                 </span>
               </div>
             </div>
 
-            <div className="w-full flex justify-center pt-4 border-t border-stone-100 select-none">
+            <div className="w-full flex justify-center pt-4 border-t border-[#977a57]/10 relative z-10 select-none">
               <button
                 onClick={() => setShowSpecialLetter(false)}
-                className="px-6 py-1.5 text-xs border border-[#977a57] text-[#977a57] hover:bg-[#977a57]/10 transition-all rounded-[2px]"
+                className="px-6 py-1.5 text-xs border border-[#977a57] text-[#977a57] hover:bg-[#cb402b] hover:text-stone-100 hover:border-[#cb402b] transition-all rounded-[2px] cursor-pointer"
               >
                 合上信笺，合上作文本
               </button>

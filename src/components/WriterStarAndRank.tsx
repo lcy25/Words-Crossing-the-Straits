@@ -240,11 +240,23 @@ export default function WriterStarAndRank({ authors, onSelectAuthor }: WriterSta
                       if (!nodeAuthor) return null;
                       return (
                         <div className="font-serif">
-                          <div className="flex justify-between items-center border-b border-[#977a57]/20 pb-1 mb-1.5">
-                            <span className="font-bold text-sm text-[#1f1610]">{nodeAuthor.name}</span>
-                            <span className="text-[10px] bg-red-800 text-stone-100 px-1 py-0.2 rounded">
-                              综：{nodeAuthor.indexScore}
-                            </span>
+                          <div className="flex items-center space-x-2.5 border-b border-[#977a57]/20 pb-1.5 mb-1.5">
+                            {nodeAuthor.avatarUrl && (
+                              <img
+                                src={nodeAuthor.avatarUrl}
+                                alt={nodeAuthor.name}
+                                className="w-8 h-8 rounded-full object-cover border border-[#977a57]/30 bg-[#faf5ea] shrink-0"
+                                referrerPolicy="no-referrer"
+                              />
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex justify-between items-center">
+                                <span className="font-bold text-sm text-[#1f1610]">{nodeAuthor.name}</span>
+                                <span className="text-[10px] bg-red-800 text-stone-100 px-1 py-0.2 rounded font-mono font-bold">
+                                  综：{nodeAuthor.indexScore}
+                                </span>
+                              </div>
+                            </div>
                           </div>
                           <p className="text-[11px] text-[#6d5641] leading-relaxed line-clamp-3">
                             “{nodeAuthor.quote}”
@@ -294,9 +306,9 @@ export default function WriterStarAndRank({ authors, onSelectAuthor }: WriterSta
                       className="group flex items-center justify-between space-x-3 cursor-pointer py-0.5"
                     >
                       {/* Name and Rank Badge */}
-                      <div className="flex items-center space-x-2 w-28 shrink-0 select-none">
+                      <div className="flex items-center space-x-2.5 w-36 shrink-0 select-none">
                         <span
-                          className={`w-5 h-5 flex items-center justify-center font-mono text-[10px] rounded-full font-bold ${
+                          className={`w-5 h-5 flex items-center justify-center font-mono text-[10px] rounded-full font-bold shrink-0 ${
                             index < 3
                               ? "bg-[#cb402b] text-[#f7eedc] shadow-sm"
                               : "bg-[#e8dec4] text-[#6d5641]"
@@ -304,7 +316,15 @@ export default function WriterStarAndRank({ authors, onSelectAuthor }: WriterSta
                         >
                           {index + 1}
                         </span>
-                        <span className="font-bold text-sm text-[#2c1d11] group-hover:text-[#cb402b] transition-colors">
+                        {author.avatarUrl && (
+                          <img
+                            src={author.avatarUrl}
+                            alt={author.name}
+                            className="w-7 h-7 rounded-full object-cover border border-[#977a57]/30 bg-[#faf5ea] shrink-0 grayscale group-hover:grayscale-0 transition-all duration-500"
+                            referrerPolicy="no-referrer"
+                          />
+                        )}
+                        <span className="font-bold text-sm text-[#2c1d11] group-hover:text-[#cb402b] transition-colors truncate">
                           {author.name}
                         </span>
                       </div>

@@ -15,8 +15,9 @@ export const AUTHORS: Author[] = [
     newsVolume: 92,
     spreadEffect: 95,
     cultureInfluence: 94,
-    description: "茅盾位居作家榜首，一个重要原因是“茅盾文学奖”的持续带动。文学奖不仅让作家姓名频繁被提起，也让历届获奖作品、改编影视剧、深度文学评价等，连带进入台湾学术界与媒体的视野，形成长效的学术与公共讨论圈。",
-    avatarSilhouette: "M 20,50 Q 50,20 80,50 T 140,50 Q 110,80 80,110 T 20,50"
+    description: "茅盾位居作家榜首，一个重要原因是“茅盾文学奖”的持续带动。文学奖不仅让作家姓名频繁被提起，也让历届获奖作品、改编影视剧、深度文学评价等，连带进入台湾学术界与媒体 of 视野，形成长效的学术与公共讨论圈。",
+    avatarSilhouette: "M 20,50 Q 50,20 80,50 T 140,50 Q 110,80 80,110 T 20,50",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Mao_Dun.jpg"
   },
   {
     id: "zhangailing",
@@ -31,7 +32,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 91,
     cultureInfluence: 95,
     description: "张爱玲在台湾的传播广度极深，往往与老上海、民国遗韵、都市情感算计、以及清冷苍凉的女性命运相联结。她的作品成为数代读者理解现代都会人性的重要透镜，也在影视、话剧改编中获得了绵延不绝的生命力。",
-    avatarSilhouette: "M 40,20 Q 80,40 50,90 T 90,130 Q 30,120 40,20"
+    avatarSilhouette: "M 40,20 Q 80,40 50,90 T 90,130 Q 30,120 40,20",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Eileen_Chang.jpg"
   },
   {
     id: "luxun",
@@ -46,7 +48,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 93,
     cultureInfluence: 92,
     description: "鲁迅以高频的新闻量和强大的传播效能占据一席之地。在两岸公共讨论中，鲁迅往往超越了单纯的文学史范畴，成为一个象征知识分子批判风骨与精神启蒙的符号，其金句在社会评论与反思文章中被高频引证。",
-    avatarSilhouette: "M 30,30 L 100,20 L 90,100 L 20,90 Z"
+    avatarSilhouette: "M 30,30 L 100,20 L 90,100 L 20,90 Z",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Lu_Xun_1930s.jpg"
   },
   {
     id: "hanhan",
@@ -61,7 +64,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 86,
     cultureInfluence: 82,
     description: "韩寒作为新世纪作家的代表，曾在台湾青年一代及网络媒体上引起过广泛的共鸣。他的博客杂文与小说，带着强烈的个人主义与幽默反叛，折射出了两岸青年在面对现代社会时相似的迷茫与反思。",
-    avatarSilhouette: "M 10,60 Q 70,10 120,60 T 10,60"
+    avatarSilhouette: "M 10,60 Q 70,10 120,60 T 10,60",
+    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
   },
   {
     id: "moyan",
@@ -76,7 +80,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 82,
     cultureInfluence: 88,
     description: "伴随着诺贝尔文学奖的巨大光环，莫言在台湾的媒体关注度在获奖期间迎来爆发。他的高密东北乡叙事被看作是深植于中华民间土壤、混杂着魔幻与现实、粗犷野性的生命力赞歌，其国际认可极大地推动了华语经典的全球阐释。",
-    avatarSilhouette: "M 50,10 Q 90,50 50,110 T 50,10"
+    avatarSilhouette: "M 50,10 Q 90,50 50,110 T 50,10",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/a/af/Mo_Yan_Stockholm_2012.jpg"
   },
   {
     id: "laoshe",
@@ -91,7 +96,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 79,
     cultureInfluence: 83,
     description: "老舍的《茶馆》《骆驼祥子》在台湾舞台艺术与经典教材中具有长盛不衰的影响。他的市井幽默中透露出的普通人悲歌，唤起了两岸读者对平民命运最深切的同情与共鸣。",
-    avatarSilhouette: "M 10,10 L 90,30 L 110,90 L 30,100 Z"
+    avatarSilhouette: "M 10,10 L 90,30 L 110,90 L 30,100 Z",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Lao_She.jpg"
   },
   {
     id: "wanganyi",
@@ -106,7 +112,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 75,
     cultureInfluence: 78,
     description: "作为当代海派文学的中流砥柱，王安忆的《长恨歌》在台版重印与评论中被赋予极高评价。她与张爱玲一道被台湾读者想象为透视老上海闺阁世俗、里弄变迁、女性生命质感的“双生花”。",
-    avatarSilhouette: "M 20,40 Q 60,10 100,50 T 20,100"
+    avatarSilhouette: "M 20,40 Q 60,10 100,50 T 20,100",
+    avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80"
   },
   {
     id: "shencongwen",
@@ -120,8 +127,9 @@ export const AUTHORS: Author[] = [
     newsVolume: 70,
     spreadEffect: 75,
     cultureInfluence: 82,
-    description: "沈从文及其《边城》在台湾被视作现代汉语文体和乡土诗意美的最高标杆。翠翠、渡船、湘西吊脚楼，构成了一个干净安详、超越时空的桃花源，为处于都市巨变中的读者提供了文化安顿和精神故乡。",
-    avatarSilhouette: "M 10,50 Q 80,30 110,70 T 30,120"
+    description: "沈从文及其《边城》在台湾被视作现代汉语文体和乡土诗意美的最高标杆。翠翠、渡船、湘西吊脚楼，构成了一个干净安详、超越时空的桃花源，为处于都市巨变中的读者提供了文化安顿 and 精神故乡。",
+    avatarSilhouette: "M 10,50 Q 80,30 110,70 T 30,120",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Shen_Congwen.jpg"
   },
   {
     id: "caoyu",
@@ -136,7 +144,8 @@ export const AUTHORS: Author[] = [
     spreadEffect: 70,
     cultureInfluence: 72,
     description: "曹禺的《雷雨》《原野》是台湾各大高校戏剧社团、专业剧团最常排演的看家大戏。舞台上的家庭伦理悲剧与深刻的人性、欲望搏斗，在跨越海峡的剧场内依然雷雨轰鸣、震撼心灵。",
-    avatarSilhouette: "M 15,15 L 85,15 L 85,85 L 15,85 Z"
+    avatarSilhouette: "M 15,15 L 85,15 L 85,85 L 15,85 Z",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Cao_Yu.jpg"
   },
   {
     id: "xiaohong",
@@ -151,7 +160,24 @@ export const AUTHORS: Author[] = [
     spreadEffect: 64,
     cultureInfluence: 68,
     description: "萧红《呼兰河传》《生死场》在台湾文学界常伴随“女性流亡、悲凉自述、北方土地荒凉生命”等阐释。其散文诗般独特的文风与传奇而坎坷的命运，让无数读者跨越地理隔阂为之唏嘘、共情。",
-    avatarSilhouette: "M 20,20 Q 80,50 30,110 T 90,130"
+    avatarSilhouette: "M 20,20 Q 80,50 30,110 T 90,130",
+    avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Xiao_Hong.jpg"
+  },
+  {
+    id: "xiaolin",
+    name: "小学生小林",
+    quote: "字裡藏著一條河。水不認岸，水只認流。",
+    cardTag: "两岸读者的情感回响",
+    keywords: ["作文本", "边城", "童年回忆", "海峡对岸"],
+    letterMood: "纯真、温存、潺潺如水",
+    inkShape: "小船与溪流墨痕",
+    indexScore: 88,
+    newsVolume: 85,
+    spreadEffect: 90,
+    cultureInfluence: 92,
+    description: "一个十岁的台湾小学生，在她的作文本格子里一笔一划写下沈从文的那句私语。文字没有关卡，阅读不设终点。当她写下这些字时，那些经典的河水已经静静流淌进了她的心底。",
+    avatarSilhouette: "M 20,50 Q 50,20 80,50 T 140,50 Q 110,80 80,110 T 20,50",
+    avatarUrl: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80&w=200"
   }
 ];
 

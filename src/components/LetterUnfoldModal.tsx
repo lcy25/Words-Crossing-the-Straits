@@ -65,21 +65,30 @@ export default function LetterUnfoldModal({ author, isOpen, onClose, onContinue 
             </h2>
           </div>
 
-          {/* SVG Abstract Ink Portrait Silhouette */}
+          {/* SVG Abstract Ink Portrait Silhouette or Portrait Image */}
           <div
-            className="relative w-44 h-44 my-4 flex items-center justify-center"
+            className="relative w-44 h-44 my-4 flex items-center justify-center rounded-full overflow-hidden border-2 border-[#977a57]/30 shadow-md bg-[#faf5ea]/40"
             style={{
               backgroundImage: "radial-gradient(circle, rgba(28,25,23,0.1) 0%, transparent 70%)"
             }}
           >
-            <svg viewBox="0 0 160 160" className="w-full h-full fill-[#231b14] filter drop-shadow-[2px_4px_6px_rgba(0,0,0,0.25)]">
-              <path d={author.avatarSilhouette} />
-              {/* Abstract extra ink brush droplets */}
-              <circle cx="45" cy="115" r="5" className="fill-[#30251c]" />
-              <circle cx="120" cy="40" r="3" className="fill-[#30251c]" />
-              <path d="M 130,100 Q 135,115 125,120 T 115,100" className="fill-[#1f1610]" />
-            </svg>
-            <div className="absolute bottom-2 bg-stone-900/5 px-2 py-0.5 rounded text-[11px] font-mono text-[#977a57]">
+            {author.avatarUrl ? (
+              <img
+                src={author.avatarUrl}
+                alt={author.name}
+                className="w-full h-full object-cover filter sepia-[0.35] contrast-[1.1] brightness-[0.95]"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <svg viewBox="0 0 160 160" className="w-full h-full fill-[#231b14] filter drop-shadow-[2px_4px_6px_rgba(0,0,0,0.25)]">
+                <path d={author.avatarSilhouette} />
+                {/* Abstract extra ink brush droplets */}
+                <circle cx="45" cy="115" r="5" className="fill-[#30251c]" />
+                <circle cx="120" cy="40" r="3" className="fill-[#30251c]" />
+                <path d="M 130,100 Q 135,115 125,120 T 115,100" className="fill-[#1f1610]" />
+              </svg>
+            )}
+            <div className="absolute bottom-2 bg-[#2c1d11]/80 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-mono text-[#f7eedc] border border-[#977a57]/20 select-none">
               {author.inkShape}
             </div>
           </div>

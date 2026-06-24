@@ -12,6 +12,7 @@ export interface Author {
   cultureInfluence: number; // 文化影响
   description: string; // 传播解释
   avatarSilhouette: string; // inline SVG or description
+  avatarUrl?: string; // portrait photo URL
 }
 
 export interface LiteraryWork {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Author } from "../types";
 import Seal from "./Seals";
+import titleImage from "../assets/images/title.jpg";
 
 interface InkWaveHeroProps {
   authors: Author[];
@@ -11,13 +12,14 @@ interface InkWaveHeroProps {
 export default function InkWaveHero({ authors, onSelectBoat, onExplore }: InkWaveHeroProps) {
   const [hoveredBoat, setHoveredBoat] = useState<string | null>(null);
 
-  // Position coordinates for 5 boats (distributed elegantly across the screen)
+  // Position coordinates for 6 boats (distributed elegantly across the screen)
   const boatCoords = [
     { id: "luxun", left: "15%", top: "52%", label: "鲁迅的漂流信" },
     { id: "zhangailing", left: "32%", top: "45%", label: "张爱玲的漂流信" },
     { id: "maodun", left: "52%", top: "54%", label: "茅盾的漂流信" },
     { id: "shencongwen", left: "68%", top: "48%", label: "沈从文的漂流信" },
-    { id: "moyan", left: "84%", top: "55%", label: "莫言的漂流信" }
+    { id: "moyan", left: "84%", top: "55%", label: "莫言的漂流信" },
+    { id: "xiaolin", left: "42%", top: "58%", label: "小林的漂流信" }
   ];
 
   return (
@@ -41,15 +43,39 @@ export default function InkWaveHero({ authors, onSelectBoat, onExplore }: InkWav
             数据解码华文经典的彼岸之旅
           </span>
 
-          <div className="relative inline-block mx-auto">
-            {/* Absolute positioned Seal replicating the uploaded image layout */}
-            <div className="absolute -left-14 md:-left-20 -top-1 select-none">
-              <Seal text="大陆文学在台" size="md" />
+          <div className="relative inline-block mx-auto max-w-[98%] md:max-w-none select-none py-6">
+            {/* Absolute positioned Seal replicating the uploaded image layout - perfectly stable and upright (四平八稳) */}
+            <div className="absolute -left-10 sm:-left-14 md:-left-[4.5rem] lg:-left-[5.5rem] xl:-left-[6.5rem] top-2 sm:top-4 md:top-6 select-none z-20 scale-95 sm:scale-110 md:scale-125 transition-all duration-300">
+              <Seal text="大陆文学在台" size="md" className="shadow-md border border-[#a22f1d]/40" />
             </div>
 
-            <h1 className="font-calligraphy text-6xl md:text-8xl lg:text-9xl text-[#1c1109] leading-none select-none tracking-wider pl-4">
-              笔墨越海峡
-            </h1>
+            {/* Recreated dynamic, transparent background calligraphy characters (有大有小, 错落有致, 更加大气) */}
+            <div className="flex items-center justify-center font-calligraphy text-[#1c1a16] tracking-normal select-none relative whitespace-nowrap pl-4 pr-2">
+              {/* 笔 */}
+              <span className="text-6xl sm:text-8xl md:text-[7.5rem] lg:text-[11.5rem] xl:text-[13rem] 2xl:text-[15rem] font-normal leading-none transform -rotate-[5deg] -translate-y-[8%] select-none inline-block filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-all duration-300">
+                笔
+              </span>
+              
+              {/* 墨 */}
+              <span className="text-4.5xl sm:text-6.5xl md:text-[5.5rem] lg:text-[7.8rem] xl:text-[9.2rem] 2xl:text-[10.8rem] font-normal leading-none transform rotate-[3deg] translate-y-[10%] -translate-x-[15%] select-none inline-block filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-all duration-300">
+                墨
+              </span>
+              
+              {/* 越 */}
+              <span className="text-5.5xl sm:text-7.5xl md:text-[6.5rem] lg:text-[10.5rem] xl:text-[11.8rem] 2xl:text-[13.5rem] font-normal leading-none transform rotate-[1deg] -translate-y-[2%] -translate-x-[10%] select-none inline-block filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-all duration-300">
+                越
+              </span>
+              
+              {/* 海 */}
+              <span className="text-5.5xl sm:text-7.5xl md:text-[6.8rem] lg:text-[10.8rem] xl:text-[12.2rem] 2xl:text-[14rem] font-normal leading-none transform -rotate-[2deg] -translate-y-[1%] -translate-x-[4%] select-none inline-block filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-all duration-300">
+                海
+              </span>
+              
+              {/* 峡 */}
+              <span className="text-6.5xl sm:text-8.5xl md:text-[7.8rem] lg:text-[12rem] xl:text-[13.5rem] 2xl:text-[15.5rem] font-normal leading-none transform rotate-[3deg] -translate-y-[5%] translate-x-[2%] select-none inline-block filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-all duration-300">
+                峡
+              </span>
+            </div>
           </div>
 
           {/* Subtitle in expressive font matching the image */}
@@ -108,6 +134,13 @@ export default function InkWaveHero({ authors, onSelectBoat, onExplore }: InkWav
           const bobDelay = `${idx * -1.4}s`;
           const swayDuration = `${6.5 + idx}s`;
 
+          // Calculate perspective scale factor (近大远小)
+          // top ranges from 45% (further away) to 55% (closer)
+          const topNum = parseFloat(coord.top);
+          const scaleFactor = 0.75 + ((topNum - 45) / 10) * 0.45;
+
+          const isSpecialXiaolin = coord.id === "xiaolin";
+
           return (
             <div
               key={coord.id}
@@ -119,64 +152,82 @@ export default function InkWaveHero({ authors, onSelectBoat, onExplore }: InkWav
                 transformOrigin: "center bottom"
               }}
             >
-              {/* Ripple Ring when hovered */}
-              <div className="absolute top-10 left-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                <span className={`absolute w-16 h-4 border border-[#977a57]/30 rounded-full scale-0 transition-transform duration-1000 ${isHovered ? "animate-waterRipple scale-150 opacity-0" : ""}`} />
-                <span className={`absolute w-24 h-6 border border-[#977a57]/15 rounded-full scale-0 transition-transform duration-1000 ${isHovered ? "animate-waterRipple scale-200 delay-300 opacity-0" : ""}`} />
-              </div>
-
-              {/* Hover Label */}
+              {/* Inner wrapper for 2.5D perspective scaling */}
               <div
-                className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 bg-[#fdfaf2] border border-[#977a57]/40 px-3 py-1.5 shadow-md rounded-[2px] transition-all duration-300 pointer-events-none z-40 w-max max-w-[200px] flex flex-col items-center ${
-                  isHovered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-1 scale-95"
-                }`}
                 style={{
-                  boxShadow: "2px 4px 10px rgba(0,0,0,0.1), inset 0 0 5px rgba(151,122,87,0.08)"
+                  transform: `scale(${scaleFactor})`,
+                  transformOrigin: "center bottom"
                 }}
+                className="relative"
               >
-                <span className="text-[10px] font-serif tracking-widest text-[#977a57] block mb-0.5 uppercase">
-                  折纸船
-                </span>
-                <span className="text-xs font-serif font-semibold text-[#2c1d11]">
-                  展开「{author.name}」的信笺
-                </span>
-                {/* Small indicator tag */}
-                <span className="text-[9px] font-sans text-stone-500 mt-1 block px-1 bg-stone-100 rounded">
-                  {author.cardTag}
-                </span>
-              </div>
+                {/* Ripple Ring when hovered */}
+                <div className="absolute top-10 left-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                  <span className={`absolute w-16 h-4 border rounded-full scale-0 transition-transform duration-1000 ${isSpecialXiaolin ? "border-[#cb402b]/40" : "border-[#977a57]/30"} ${isHovered ? "animate-waterRipple scale-150 opacity-0" : ""}`} />
+                  <span className={`absolute w-24 h-6 border rounded-full scale-0 transition-transform duration-1000 ${isSpecialXiaolin ? "border-[#cb402b]/20" : "border-[#977a57]/15"} ${isHovered ? "animate-waterRipple scale-200 delay-300 opacity-0" : ""}`} />
+                </div>
 
-              {/* Origami Boat Render (using classic pure vectors) */}
-              <button
-                onClick={() => onSelectBoat(author)}
-                onMouseEnter={() => setHoveredBoat(coord.id)}
-                onMouseLeave={() => setHoveredBoat(null)}
-                className="relative focus:outline-none focus:ring-1 focus:ring-[#cb402b] p-2 rounded cursor-pointer"
-                aria-label={`展开 ${author.name} 的信笺`}
-              >
-                <svg
-                  viewBox="0 0 100 50"
-                  className={`w-20 md:w-24 h-auto stroke-[#6d5641] stroke-1 transition-all duration-500 ${
-                    isHovered
-                      ? "fill-[#f5ebd8] filter drop-shadow-[0_8px_15px_rgba(139,115,85,0.5)] scale-110"
-                      : "fill-[#ebe4d5] filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]"
+                {/* Hover Label */}
+                <div
+                  className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 bg-[#fdfaf2] border px-3 py-1.5 shadow-md rounded-[2px] transition-all duration-300 pointer-events-none z-40 w-max max-w-[200px] flex flex-col items-center ${
+                    isSpecialXiaolin ? "border-[#cb402b]/40" : "border-[#977a57]/40"
+                  } ${
+                    isHovered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-1 scale-95"
                   }`}
+                  style={{
+                    boxShadow: "2px 4px 10px rgba(0,0,0,0.1), inset 0 0 5px rgba(151,122,87,0.08)"
+                  }}
                 >
-                  {/* Origami creases drawn as distinct paths */}
-                  <polygon points="50,10 15,35 50,35" strokeWidth="0.75" />
-                  <polygon points="50,10 85,35 50,35" strokeWidth="0.75" />
-                  <polygon points="10,35 50,35 50,45" strokeWidth="0.75" />
-                  <polygon points="90,35 50,35 50,45" strokeWidth="0.75" />
-                  <polygon points="10,35 90,35 50,45" strokeWidth="1" />
-                  {/* Centered mast fold */}
-                  <line x1="50" y1="10" x2="50" y2="35" strokeWidth="0.5" strokeDasharray="1,1" />
-                </svg>
+                  <span className={`text-[10px] font-serif tracking-widest block mb-0.5 uppercase ${isSpecialXiaolin ? "text-[#cb402b]" : "text-[#977a57]"}`}>
+                    {isSpecialXiaolin ? "心灵之信" : "折纸船"}
+                  </span>
+                  <span className="text-xs font-serif font-semibold text-[#2c1d11]">
+                    展开「{author.name}」的信笺
+                  </span>
+                  {/* Small indicator tag */}
+                  <span className={`text-[9px] font-sans mt-1 block px-1 rounded ${isSpecialXiaolin ? "bg-red-50 text-[#cb402b] border border-red-100/50" : "bg-stone-100 text-stone-500"}`}>
+                    {author.cardTag}
+                  </span>
+                </div>
 
-                {/* Writer's Faded Name Calligraphy Overlay */}
-                <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-[10px] md:text-xs font-serif font-semibold tracking-wider text-stone-700/80 pointer-events-none select-none bg-stone-100/30 px-1 rounded-sm">
-                  {author.name}
-                </span>
-              </button>
+                {/* Origami Boat Render (using classic pure vectors) */}
+                <button
+                  onClick={() => onSelectBoat(author)}
+                  onMouseEnter={() => setHoveredBoat(coord.id)}
+                  onMouseLeave={() => setHoveredBoat(null)}
+                  className="relative focus:outline-none focus:ring-1 focus:ring-[#cb402b] p-2 rounded cursor-pointer"
+                  aria-label={`展开 ${author.name} 的信笺`}
+                >
+                  <svg
+                    viewBox="0 0 100 50"
+                    stroke={isSpecialXiaolin ? "#cb402b" : "#6d5641"}
+                    className={`w-20 md:w-24 h-auto stroke-1 transition-all duration-500 ${
+                      isHovered
+                        ? isSpecialXiaolin
+                          ? "fill-[#fceae6] filter drop-shadow-[0_8px_15px_rgba(203,64,43,0.4)] scale-110"
+                          : "fill-[#f5ebd8] filter drop-shadow-[0_8px_15px_rgba(139,115,85,0.5)] scale-110"
+                        : isSpecialXiaolin
+                          ? "fill-[#fbebeb] filter drop-shadow-[0_4px_6px_rgba(203,64,43,0.15)] animate-pulse"
+                          : "fill-[#ebe4d5] filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]"
+                    }`}
+                  >
+                    {/* Origami creases drawn as distinct paths */}
+                    <polygon points="50,10 15,35 50,35" strokeWidth="0.75" />
+                    <polygon points="50,10 85,35 50,35" strokeWidth="0.75" />
+                    <polygon points="10,35 50,35 50,45" strokeWidth="0.75" />
+                    <polygon points="90,35 50,35 50,45" strokeWidth="0.75" />
+                    <polygon points="10,35 90,35 50,45" strokeWidth="1" />
+                    {/* Centered mast fold */}
+                    <line x1="50" y1="10" x2="50" y2="35" strokeWidth="0.5" strokeDasharray="1,1" />
+                  </svg>
+
+                  {/* Writer's Faded Name Calligraphy Overlay */}
+                  <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 text-[10px] md:text-xs font-serif font-semibold tracking-wider pointer-events-none select-none px-1 rounded-sm ${
+                    isSpecialXiaolin ? "text-[#cb402b]/95 bg-red-50/75 border border-red-100/40 font-bold" : "text-stone-700/80 bg-stone-100/30"
+                  }`}>
+                    {author.name}
+                  </span>
+                </button>
+              </div>
             </div>
           );
         })}
